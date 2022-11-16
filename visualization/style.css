@@ -14,13 +14,12 @@
 }
 
 .tcBox .descBox {
-    border-right: 1px solid #000;
+    /* border-right: 1px solid #000; */
     z-index: 5;
 }
 
 .descBox {
-    padding: 0px 15px;
-    border-right: 1px solid #000;
+    padding: 15px;
 }
 
 .descBox div {

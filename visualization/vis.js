@@ -5,7 +5,7 @@
 // then append each desc as child within "inner container"
 
 const cssMultiplier = 15;        // spacing between each timecode break
-const offsetFromBottom = 50;
+const offsetFromTop = 70;
 
 (() => {
     // populate backend db given data spreadsheet
@@ -42,7 +42,7 @@ function processData(json, videoId) {
     for (let i = 0; i < timecodeArr.length; i++) {
         const newDiv = document.createElement('div')
         newDiv.style.position = 'absolute'
-        newDiv.style.top = ((parseTime(timecodeArr[i]) * cssMultiplier) + offsetFromBottom) + "px"
+        newDiv.style.top = ((parseTime(timecodeArr[i]) * cssMultiplier) + offsetFromTop) + "px"
         newDiv.innerText = timecodeArr[i]
         timecodes.appendChild(newDiv)
     }
@@ -89,10 +89,10 @@ function genChild(parent, time, desc) {
 
     const newDiv = document.createElement('div')
     newDiv.style.position = 'absolute'
-    newDiv.style.top = ((parseTime(time) * cssMultiplier) + offsetFromBottom) + "px"
+    newDiv.style.top = ((parseTime(time) * cssMultiplier) + offsetFromTop) + "px"
     newDiv.style.backgroundColor = color
     newDiv.style.border = "1px solid #000";
-    newDiv.innerText = time + " " + desc
+    newDiv.innerText = normTime(time) + " " + desc
     currentCondition.appendChild(newDiv)
 }
 
@@ -106,4 +106,14 @@ function parseTime(t) {
     const sec = parseInt(data[offset + 1])
     const time = (min * 60) + sec
     return time
+}
+
+function normTime(t) {
+    const tSplit = t.split(':')
+    if (tSplit[0] == "NOTIME") {
+        return "[Context Description]:\n"
+    }
+    let offset = (tSplit.length == 3) ? 1 : 0
+    if(tSplit[offset][1]) return tSplit[offset][1] + ":" + tSplit[offset+1]
+    else return tSplit[offset]+ ":" + tSplit[offset+1]
 }

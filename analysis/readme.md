@@ -1,5 +1,5 @@
 run scripts here using 
 
 ```sh
-node `filename.js`
+node [filename].js
 ```

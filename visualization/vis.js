@@ -5,6 +5,7 @@
 // then append each desc as child within "inner container"
 
 const cssMultiplier = 15;        // spacing between each timecode break
+const offsetFromBottom = 50;
 
 (() => {
     // populate backend db given data spreadsheet
@@ -12,7 +13,7 @@ const cssMultiplier = 15;        // spacing between each timecode break
         const queryString = location.search
         let a = queryString.split('?')
         const videoId = a[1].split('=')[1]
-        if(videoId) processData(json, videoId)
+        if(videoId) processData(json, videoId)      // and populate visualization if a videoID query is found
     });
 })()
 
@@ -40,8 +41,8 @@ function processData(json, videoId) {
     const timecodeArr = genTimecodes(lastDescTime)
     for (let i = 0; i < timecodeArr.length; i++) {
         const newDiv = document.createElement('div')
-        newDiv.style.position = 'relative'
-        newDiv.style.top = (parseTime(timecodeArr[i]) * cssMultiplier) + "px"
+        newDiv.style.position = 'absolute'
+        newDiv.style.top = ((parseTime(timecodeArr[i]) * cssMultiplier) + offsetFromBottom) + "px"
         newDiv.innerText = timecodeArr[i]
         timecodes.appendChild(newDiv)
     }
@@ -71,12 +72,15 @@ function genChild(parent, time, desc) {
     switch (parent) {
         case "A":
             var currentCondition = audioDescs
+            var color = "#CCF"
             break;
         case "TA":
             var currentCondition = asyncTextDescs
+            var color = "#88F"
             break;
         case "TL":
             var currentCondition = liveTextDescs
+            var color = "#AAF"
             break;
         default:
             console.log("err! bad condition!")
@@ -84,9 +88,11 @@ function genChild(parent, time, desc) {
     }
 
     const newDiv = document.createElement('div')
-    newDiv.style.position = 'relative'
-    newDiv.style.top = (parseTime(time) * cssMultiplier) + "px"
-    newDiv.innerText = desc
+    newDiv.style.position = 'absolute'
+    newDiv.style.top = ((parseTime(time) * cssMultiplier) + offsetFromBottom) + "px"
+    newDiv.style.backgroundColor = color
+    newDiv.style.border = "1px solid #000";
+    newDiv.innerText = time + " " + desc
     currentCondition.appendChild(newDiv)
 }
 

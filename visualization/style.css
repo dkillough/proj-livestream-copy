@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -5,9 +9,22 @@
     align-items: flex-start;
 }
 
+.container h2 {
+    position: sticky;
+}
+
+.tcBox .descBox {
+    border-right: 1px solid #000;
+    z-index: 5;
+}
+
 .descBox {
     padding: 0px 15px;
     border-right: 1px solid #000;
+}
+
+.descBox div {
+    padding: 7px;
 }
 
 #timecodes div {
@@ -15,16 +32,28 @@
     border-right: 1px solid #000;
 }
 
-.tcBox .descBox {
-    border-right: 1px solid #000;
+#audioBox #liveBox #asyncBox {
+    width: 25%;
 }
 
-.descBox div {
-    background-color: aqua;
-    padding: 7px;
-    border: 1px solid #000;
+#audioBox {
+    position: absolute;
+    left: 10%;
 }
 
-* {
-    font-family: sans-serif;
+#liveBox {
+    position: absolute;
+    left: 37%;
+}
+
+#asyncBox {
+    position: absolute;
+    left: 67%;
+}
+
+#jumpBox {
+    position: absolute;
+    z-index: 100;
+    right: 15px;
+    background-color: white;
 }

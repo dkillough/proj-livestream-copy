@@ -1,69 +1,53 @@
-const dataLength = 8;            // number of fields for each row of data table
-const videoIdField = 4;          // index of "Video" field
-const timeFromStartField = 7;    // index of "Timecode from start of description" field
-const conditionField = 1;        // index of "Condition" field
-const descTxtField = 5;          // index of "Description Text" field
+/*  - How many audio descriptions for each condition/participant 
+    - Total # / avg # words per description
+        - How that varied over description types
+        - Mean & Std. dev for each (per video and per condition)
+    - Calculate with the intent to find patterns or outliers
+*/
 
-const fs = require('fs')
-const data = fs.readFileSync('./data.csv', 'utf8');
-const dataArr = data.split(',')
-const cleanDataArr = []
+// array participants of p objects
+const participants = []
 
-for (let i = 0; i < dataArr.length; i++) {
-    if (dataArr[i] != '') {
-        // console.log(dataArr[i])
-        if (dataArr[i].includes("\r\n")) {
-            let temp = dataArr[i].split("\r\n")
+// template p object
+let p = {
+    "rawNumA": 0,
+    "rawNumTL": 0,
+    "rawNumTA": 0,    // raw # descriptions
+    "timeSpentA": 0,  // time spent describing in seconds (last time minus start time)
+    "timeSpentTL": 0,
+    "timeSpentTA": 0,
+    "avgDescA": 0,    // avg descriptions per minute
+    "avgDescTL": 0,
+    "avgDescTA": 0
+}
 
-            for (let j = 0; j < temp.length; j++) {
-                if (temp[j] != '') cleanDataArr.push(temp[j])
-            }
-        } else {
-            cleanDataArr.push(dataArr[i])
-        }
+(() => {
+    const json = require('../visualization/data.json')
+
+    for (let i = 0; i < json.length; i++) {
+        genChild(json[i].condition, json[i].timecode, json[i].descTxt)
+        const t = parseTime(json[i].timecode)
+        if (t > lastDescTime) lastDescTime = t
     }
-    // console.log(cleanDataArr)
-}
 
-if (cleanDataArr.length % dataLength != 0) {
-    console.log("warning! amount of fields not divisible by length!")
-}
-
-const videoArr = calcByVideo()
-const partArr = calcByParticipant()
-
-function calcByVideo() {
-    let i = 0
-    let currentVideoID = cleanDataArr[i + videoIdField]
-    let videoDataArr = []
-    let newDataRow = []
-    while (i < cleanDataArr.length) {
-        if (currentVideoID != cleanDataArr[i + videoIdField]) {
-            videoDataArr.push(newDataRow)
-            newDataRow = []
-            currentVideoID = cleanDataArr[i + videoIdField]
-        }
-
-        let j = i
-        while (i < (j + dataLength)) {
-            if (i >= cleanDataArr.length) {
-                console.log('ERR RAN OUT OF DATA AT INDEX %d', i)
-                break;
-            }
-            newDataRow.push(cleanDataArr[i])
-            i++
-        }
-        // console.log('a')
+    if (!found) {
+        console.log('timecodes not found')
+        return;
     }
-    console.log(newDataRow)
-    videoDataArr.push(newDataRow)
-    return videoDataArr
-}
 
-function calcByParticipant() {
+})()
+
+function incrementCondition() {
 
 }
 
-function calcByCondition() {
-    
+function getStandardDeviation(array) {
+    if (!array || array.length === 0) return 0;
+    const n = array.length
+    const mean = array.reduce((a, b) => a + b) / n
+    return Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+}
+
+function getVariance(array) {
+    return Math.sqrt(getStandardDeviation(array))
 }

@@ -42,7 +42,7 @@ function processData(json, videoId) {
     for (let i = 0; i < timecodeArr.length; i++) {
         const newDiv = document.createElement('div')
         newDiv.style.position = 'absolute'
-        newDiv.style.top = ((parseTime(timecodeArr[i]) * cssMultiplier) + offsetFromTop) + "px"
+        newDiv.style.top = ((parseTime(timecodeArr[i]) * cssMultiplier) + offsetFromTop + 7) + "px"
         newDiv.innerText = timecodeArr[i]
         timecodes.appendChild(newDiv)
     }

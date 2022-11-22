@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous">
+        </script>
+    <script src="./prototype.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div id="videoBox">
+            <video id="content" width="960" height="540" controls>
+                <source src="./League-C.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="time">
+                
+            </div>
+        </div>
+        <div id="curTimecode">
+            <h2>Timecodes</h2>
+            <button onclick="getCurTime()" type="button">Get current time position</button>
+            <button onclick="switchVideo()" type="button">Switch video</button>
+            <div id="timecodes">
+                
+            </div>
+        </div>
+        <div id="jumpBox">
+            <h2>Options</h2>
+            <ul>
+                <li><a href="./?type=Audio">Audio</a></li>
+                <li><a href="./?type=Async">Async</a></li>
+                <li><a href="./?type=Live">Live</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

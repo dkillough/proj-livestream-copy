@@ -6,7 +6,6 @@
     - Calculate with the intent to find patterns or outliers
 */
 
-
 // aggregating only on participant
 // aggregating only on video
 // aggregating only on condition
@@ -25,21 +24,6 @@ let wordsPerCondition = {
 }
 
 let wordsPerConditionPerVideo = {}
-
-let video = {
-    "rawNumA": 0,     // raw # descriptions
-    "rawNumTL": 0,    // raw # descriptions
-    "rawNumTA": 0,    // raw # descriptions
-    "timeSpentA": 0,  // time spent describing in seconds (last time minus start time)
-    "timeSpentTL": 0, // time spent describing in seconds (last time minus start time)
-    "timeSpentTA": 0, // time spent describing in seconds (last time minus start time)
-    "avgDescA": 0,    // avg descriptions per minute
-    "avgDescTL": 0,   // avg descriptions per minute
-    "avgDescTA": 0,   // avg descriptions per minute
-    "contextA": 0,    // length of contextual description. 0 if not provided
-    "contextTL": 0,   // length of contextual description. 0 if not provided
-    "contextTA": 0,   // length of contextual description. 0 if not provided
-}
 
 let allDescription = {
     "rawNumA": 0,     // raw # descriptions
@@ -73,11 +57,11 @@ let contextual = {};
         let w = calcNumWords(jsonObj)
         
         words += w
-        if (contextual[jsonObj.sessionID] || jsonObj.timecode == "NOTIME") {
-            contextual[jsonObj.sessionID] = w
-        } else {
-            contextual[jsonObj.sessionID] = 0
-        }
+        // if (contextual[jsonObj.sessionID]) { // ??????????????
+        //     contextual[jsonObj.sessionID] = w
+        // } else {
+        //     contextual[jsonObj.sessionID] = 0
+        // }
 
         allDescriptions[i] = words
         descs++
@@ -171,10 +155,6 @@ function constructNumWords(jsonObj) {
 
 function calcNumPerMin(jsonObj) {
     return 60 * (calcNumWords(jsonObj) / videoDurations[jsonObj.sessionID])
-}
-
-function calcContext(array) {
-
 }
 
 function parseTime(t) {

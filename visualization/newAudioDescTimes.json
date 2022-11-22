@@ -1,6 +1,74 @@
 [
     {
         "SessionID": "Art-A-A",
-        "newStartTime": "99:99:99"
+        "newStartTime": "0:36:18"
+    },
+    {
+        "SessionID": "Art-B-A",
+        "newStartTime": "1:38:46"
+    },
+    {
+        "SessionID": "Art-C-A",
+        "newStartTime": "6:16:12"
+    },
+    {
+        "SessionID": "BOTW-C-A",
+        "newStartTime": "2:19:33"
+    },
+    {
+        "SessionID": "Chess-A-A",
+        "newStartTime": "2:13:42"
+    },
+    {
+        "SessionID": "Chess-B-A",
+        "newStartTime": "0:01:57"
+    },
+    {
+        "SessionID": "Chess-C-A",
+        "newStartTime": "0:25:17"
+    },
+    {
+        "SessionID": "League-A-A",
+        "newStartTime": "7:32:44"
+    },
+    {
+        "SessionID": "League-B-A",
+        "newStartTime": "3:47:06"
+    },
+    {
+        "SessionID": "League-C-A",
+        "newStartTime": "1:37:50"
+    },
+    {
+        "SessionID": "Makeup-A-A",
+        "newStartTime": "0:16:20"
+    },
+    {
+        "SessionID": "Makeup-B-A",
+        "newStartTime": "1:36:24"
+    },
+    {
+        "SessionID": "Smash-A-A",
+        "newStartTime": "1:37:51"
+    },
+    {
+        "SessionID": "Smash-B-A",
+        "newStartTime": "1:14:05"
+    },
+    {
+        "SessionID": "Smash-C-A",
+        "newStartTime": "2:09:14"
+    },
+    {
+        "SessionID": "Valorant-A-A",
+        "newStartTime": "1:15:32"
+    },
+    {
+        "SessionID": "Valorant-B-A",
+        "newStartTime": "0:06:44"
+    },
+    {
+        "SessionID": "Valorant-C-A",
+        "newStartTime": "0:01:40"
     }
 ]

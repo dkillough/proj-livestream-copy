@@ -7,6 +7,9 @@
 const cssMultiplier = 15;        // spacing between each timecode break
 const offsetFromTop = 70;
 let startTimeArray = [];
+let firstTime = "";
+let hasAudioContext = false;
+let firstDescTime = Number.MAX_VALUE;
 
 (() => {
     // populate backend db given data spreadsheet
@@ -22,32 +25,65 @@ let startTimeArray = [];
 function processData(json, videoId) {
     const timecodes = document.getElementById("timecodes")
 
+    let found = false
     for (let i = 0; i < json.length; i++) {
-        if (!startTimeArray[0] || !startTimeArray[1] || !startTimeArray[2]) {
-            switch (json[i].condition) {
-                case "A":
-                    if (!startTimeArray[0]) startTimeArray[0] = firstDesc
-                    continue;
-                case "TL":
-                    if (!startTimeArray[1]) startTimeArray[1] = firstDesc
-                    continue;
-                case "TA":
-                    if (!startTimeArray[2]) startTimeArray[2] = firstDesc
-                    continue;
-                default:
-                    console.log('hit default case in preprocessing ??')
-                    break
-            }
-        } else break
+        if (json[i].vidID == videoId) {
+            found = true
+            if (json[i].timecode == "NOTIME") {
+                if (json[i].condition == "A") {
+                    hasAudioContext = true
+                }
+            } else if (!startTimeArray[0] || !startTimeArray[1] || !startTimeArray[2]) {
+                switch (json[i].condition) {
+                    case "A":
+                        if (!startTimeArray[0]) startTimeArray[0] = json[i].firstDesc
+                        continue;
+                    case "TL":
+                        if (!startTimeArray[1]) startTimeArray[1] = json[i].firstDesc
+                        continue;
+                    case "TA":
+                        if (!startTimeArray[2]) startTimeArray[2] = json[i].firstDesc
+                        continue;
+                    default:
+                        console.log('hit default case in preprocessing ??')
+                        break
+                }
+            } else break
+        }
     }
 
-    let found = false
+    console.log(startTimeArray)
+
+    if (!startTimeArray[0] || !startTimeArray[1] || !startTimeArray[2]) {
+        if (!startTimeArray[0]) {
+            if (!startTimeArray[1]) firstTime = startTimeArray[2]
+            else if (!startTimeArray[2]) firstTime = startTimeArray[1]
+            else firstTime = (startTimeArray[1] < startTimeArray[2]) ? startTimeArray[1] : startTimeArray[2]
+        } else if (!startTimeArray[1]) {
+            if (!startTimeArray[0]) firstTime = startTimeArray[2]
+            else if (!startTimeArray[2]) firstTime = startTimeArray[0]
+            else firstTime = (startTimeArray[0] < startTimeArray[2]) ? startTimeArray[0] : startTimeArray[2]
+        } else if (!startTimeArray[2]) {
+            if (!startTimeArray[1]) firstTime = startTimeArray[0]
+            else if (!startTimeArray[0]) firstTime = startTimeArray[1]
+            else firstTime = (startTimeArray[1] < startTimeArray[0]) ? startTimeArray[1] : startTimeArray[0]
+        }
+    } else if (startTimeArray[0] < startTimeArray[1]) {
+        if (startTimeArray[0] <= startTimeArray[2]) firstTime = startTimeArray[0]
+        else firstTime = (startTimeArray[1] < startTimeArray[2]) ? startTimeArray[1] : startTimeArray[2]
+    } else if (startTimeArray[1] <= startTimeArray[2]) {
+        firstTime = startTimeArray[1]
+    } else {
+        firstTime = startTimeArray[2]
+    }
+
     let lastDescTime = 0
     for (let i = 0; i < json.length; i++) {
         if (json[i].vidID == videoId) {
             found = true
             genChild(json[i].condition, json[i].timecode, json[i].descTxt, json[i].firstDesc)
             const t = parseTime(json[i].timecode)
+            if (t < firstDescTime) firstDescTime = t
             if (t > lastDescTime) lastDescTime = t
         }
     }
@@ -88,21 +124,25 @@ function genChild(parent, time, desc, firstDesc) {
     const liveTextDescs = document.getElementById("txt-live")
     const asyncTextDescs = document.getElementById("txt-async")
 
+    let t = parseTime(time)
+    let fD = parseTime(firstDesc)
+    let fT = parseTime(firstTime)
+    let timeDelta = fD - fT
+    t = t + timeDelta
+
     switch (parent) {
         case "A":
             var currentCondition = audioDescs
             var color = "#CCF"
-            if (!startTimeArray[0]) startTimeArray[0] = firstDesc
+            t -= firstDescTime
             break;
         case "TA":
             var currentCondition = asyncTextDescs
             var color = "#88F"
-            if (!startTimeArray[1]) startTimeArray[1] = firstDesc
             break;
         case "TL":
             var currentCondition = liveTextDescs
             var color = "#AAF"
-            if (!startTimeArray[2]) startTimeArray[2] = firstDesc
             break;
         default:
             console.log("err! bad condition!")
@@ -111,7 +151,7 @@ function genChild(parent, time, desc, firstDesc) {
 
     const newDiv = document.createElement('div')
     newDiv.style.position = 'absolute'
-    newDiv.style.top = ((parseTime(time) * cssMultiplier) + offsetFromTop) + "px"
+    newDiv.style.top = (t * cssMultiplier) + offsetFromTop + "px"
     newDiv.style.backgroundColor = color
     newDiv.style.border = "1px solid #000";
     newDiv.innerText = normTime(time) + " " + desc

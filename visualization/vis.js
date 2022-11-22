@@ -6,6 +6,7 @@
 
 const cssMultiplier = 15;        // spacing between each timecode break
 const offsetFromTop = 70;
+let startTimeArray = [];
 
 (() => {
     // populate backend db given data spreadsheet
@@ -13,7 +14,7 @@ const offsetFromTop = 70;
         const queryString = location.search
         let a = queryString.split('?')
         const videoId = a[1].split('=')[1]
-        if(videoId) processData(json, videoId)      // and populate visualization if a videoID query is found
+        if (videoId) processData(json, videoId)      // and populate visualization if a videoID query is found
     });
 })()
 
@@ -21,14 +22,33 @@ const offsetFromTop = 70;
 function processData(json, videoId) {
     const timecodes = document.getElementById("timecodes")
 
+    for (let i = 0; i < json.length; i++) {
+        if (!startTimeArray[0] || !startTimeArray[1] || !startTimeArray[2]) {
+            switch (json[i].condition) {
+                case "A":
+                    if (!startTimeArray[0]) startTimeArray[0] = firstDesc
+                    continue;
+                case "TL":
+                    if (!startTimeArray[1]) startTimeArray[1] = firstDesc
+                    continue;
+                case "TA":
+                    if (!startTimeArray[2]) startTimeArray[2] = firstDesc
+                    continue;
+                default:
+                    console.log('hit default case in preprocessing ??')
+                    break
+            }
+        } else break
+    }
+
     let found = false
     let lastDescTime = 0
-    for(let i = 0; i < json.length; i++) {
+    for (let i = 0; i < json.length; i++) {
         if (json[i].vidID == videoId) {
             found = true
-            genChild(json[i].condition, json[i].timecode, json[i].descTxt)
+            genChild(json[i].condition, json[i].timecode, json[i].descTxt, json[i].firstDesc)
             const t = parseTime(json[i].timecode)
-            if(t > lastDescTime) lastDescTime = t
+            if (t > lastDescTime) lastDescTime = t
         }
     }
 
@@ -37,7 +57,6 @@ function processData(json, videoId) {
         return;
     }
 
-    // STILL NEED TO NORMALIZE START TIMES
     const timecodeArr = genTimecodes(lastDescTime)
     for (let i = 0; i < timecodeArr.length; i++) {
         const newDiv = document.createElement('div')
@@ -64,7 +83,7 @@ function genTimecodes(lastDescTime) {
     return timecodeArr
 }
 
-function genChild(parent, time, desc) {
+function genChild(parent, time, desc, firstDesc) {
     const audioDescs = document.getElementById("audio")
     const liveTextDescs = document.getElementById("txt-live")
     const asyncTextDescs = document.getElementById("txt-async")
@@ -73,14 +92,17 @@ function genChild(parent, time, desc) {
         case "A":
             var currentCondition = audioDescs
             var color = "#CCF"
+            if (!startTimeArray[0]) startTimeArray[0] = firstDesc
             break;
         case "TA":
             var currentCondition = asyncTextDescs
             var color = "#88F"
+            if (!startTimeArray[1]) startTimeArray[1] = firstDesc
             break;
         case "TL":
             var currentCondition = liveTextDescs
             var color = "#AAF"
+            if (!startTimeArray[2]) startTimeArray[2] = firstDesc
             break;
         default:
             console.log("err! bad condition!")
@@ -114,6 +136,6 @@ function normTime(t) {
         return "[Context Description]:\n"
     }
     let offset = (tSplit.length == 3) ? 1 : 0
-    if(tSplit[offset][1]) return tSplit[offset][1] + ":" + tSplit[offset+1]
-    else return tSplit[offset]+ ":" + tSplit[offset+1]
+    if (tSplit[offset][1]) return tSplit[offset][1] + ":" + tSplit[offset + 1]
+    else return tSplit[offset] + ":" + tSplit[offset + 1]
 }

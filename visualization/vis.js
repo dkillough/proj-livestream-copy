@@ -10,6 +10,7 @@ let startTimeArray = [];
 let firstTime = "";
 let hasAudioContext = false;
 let firstDescTime = Number.MAX_VALUE;
+let lastFirstTime = 0;
 
 (() => {
     // populate backend db given data spreadsheet
@@ -28,6 +29,7 @@ function processData(json, videoId) {
     let found = false
     for (let i = 0; i < json.length; i++) {
         if (json[i].vidID == videoId) {
+            if(!lastFirstTime || lastFirstTime < parseTime(json[i].firstDesc)) lastFirstTime = parseTime(json[i].firstDesc)
             found = true
             if (json[i].timecode == "NOTIME") {
                 if (json[i].condition == "A") {
@@ -52,8 +54,6 @@ function processData(json, videoId) {
         }
     }
 
-    console.log(startTimeArray)
-
     if (!startTimeArray[0] || !startTimeArray[1] || !startTimeArray[2]) {
         if (!startTimeArray[0]) {
             if (!startTimeArray[1]) firstTime = startTimeArray[2]
@@ -77,11 +77,12 @@ function processData(json, videoId) {
         firstTime = startTimeArray[2]
     }
 
+    let timeDelta = lastFirstTime - parseTime(firstTime)
+
     let lastDescTime = 0
     for (let i = 0; i < json.length; i++) {
         if (json[i].vidID == videoId) {
             found = true
-            genChild(json[i].condition, json[i].timecode, json[i].descTxt, json[i].firstDesc)
             const t = parseTime(json[i].timecode)
             if (t < firstDescTime) firstDescTime = t
             if (t > lastDescTime) lastDescTime = t
@@ -93,7 +94,13 @@ function processData(json, videoId) {
         return;
     }
 
-    const timecodeArr = genTimecodes(lastDescTime)
+    for (let i = 0; i < json.length; i++) {
+        if (json[i].vidID == videoId) {
+            genChild(json[i].condition, json[i].timecode, json[i].descTxt, json[i].firstDesc)
+        }
+    }
+
+    const timecodeArr = genTimecodes(lastDescTime + timeDelta)
     for (let i = 0; i < timecodeArr.length; i++) {
         const newDiv = document.createElement('div')
         newDiv.style.position = 'absolute'
@@ -128,21 +135,23 @@ function genChild(parent, time, desc, firstDesc) {
     let fD = parseTime(firstDesc)
     let fT = parseTime(firstTime)
     let timeDelta = fD - fT
-    t = t + timeDelta
+    console.log(timeDelta)
+    t += timeDelta
 
     switch (parent) {
         case "A":
             var currentCondition = audioDescs
             var color = "#CCF"
-            t -= firstDescTime
             break;
         case "TA":
             var currentCondition = asyncTextDescs
             var color = "#88F"
+            t += firstDescTime
             break;
         case "TL":
             var currentCondition = liveTextDescs
             var color = "#AAF"
+            t += firstDescTime
             break;
         default:
             console.log("err! bad condition!")

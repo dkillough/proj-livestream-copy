@@ -13,7 +13,7 @@ let firstDescTime = Number.MAX_VALUE;
 
 (() => {
     // populate backend db given data spreadsheet
-    $.getJSON('./data.json', (json) => {
+    $.getJSON('../master-data.json', (json) => {
         const queryString = location.search
         let a = queryString.split('?')
         const videoId = a[1].split('=')[1]

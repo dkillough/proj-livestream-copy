@@ -1,6 +1,6 @@
 (() => {
 
-    const json = require('./data.json')
+    const json = require('./oldData.json')
     const newTimes = require('./newAudioDescTimes.json')
     const fs = require('fs')
 

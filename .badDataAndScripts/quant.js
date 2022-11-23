@@ -47,7 +47,7 @@ let contextual = {};
 
 (() => {
     const json = require('../visualization/data.json')
-    const association = require('./association.json')
+    const association = require('../analysis/association.json')
 
     // first pass preprocessing & constructing data structures
     for (let i = 0; i < json.length; i++) {

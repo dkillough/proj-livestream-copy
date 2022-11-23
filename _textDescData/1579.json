@@ -1,0 +1,198 @@
+[
+    {
+        "time": "NOTIME",
+        "text": "<br>",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993642221,
+        "fn": "description_jsons/1542.json"
+    },
+    {
+        "time": "00:02:06",
+        "text": "White moves his queen from B3 to B4",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993745042,
+        "fn": "description_jsons/1543.json"
+    },
+    {
+        "time": "00:02:11",
+        "text": "Black moves his king back one",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993789402,
+        "fn": "description_jsons/1544.json"
+    },
+    {
+        "time": "00:02:18",
+        "text": "white moves roock up 4 spaces",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993797162,
+        "fn": "description_jsons/1546.json"
+    },
+    {
+        "time": "00:02:29",
+        "text": "White moves his pawn up one",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993809609,
+        "fn": "description_jsons/1547.json"
+    },
+    {
+        "time": "00:02:38",
+        "text": "white captured a black pawn with his pawn",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993820825,
+        "fn": "description_jsons/1548.json"
+    },
+    {
+        "time": "00:02:47",
+        "text": "black captured the white pawn",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993826482,
+        "fn": "description_jsons/1550.json"
+    },
+    {
+        "time": "00:03:06",
+        "text": "White moved the rook 3 spaces over",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993846241,
+        "fn": "description_jsons/1551.json"
+    },
+    {
+        "time": "00:03:14",
+        "text": "Black advanced his bishop into white territory",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993855409,
+        "fn": "description_jsons/1553.json"
+    },
+    {
+        "time": "00:03:22",
+        "text": "White moved a knight up",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993864217,
+        "fn": "description_jsons/1554.json"
+    },
+    {
+        "time": "00:03:31",
+        "text": "Black moves another bishop",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993871121,
+        "fn": "description_jsons/1555.json"
+    },
+    {
+        "time": "00:03:39",
+        "text": "White captured a black bishop with his king",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993879097,
+        "fn": "description_jsons/1556.json"
+    },
+    {
+        "time": "00:03:53",
+        "text": "White queen advanced",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993891673,
+        "fn": "description_jsons/1558.json"
+    },
+    {
+        "time": "00:03:58",
+        "text": "Black king moved over for safety",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993897761,
+        "fn": "description_jsons/1559.json"
+    },
+    {
+        "time": "00:04:06",
+        "text": "black queen moved diagonally up the board",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993907497,
+        "fn": "description_jsons/1560.json"
+    },
+    {
+        "time": "00:04:18",
+        "text": "white pawn moved up 1 space",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993915385,
+        "fn": "description_jsons/1562.json"
+    },
+    {
+        "time": "00:04:22",
+        "text": "black queen is pressing forward",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993920201,
+        "fn": "description_jsons/1563.json"
+    },
+    {
+        "time": "00:04:27",
+        "text": "black queen retreated a space",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993926177,
+        "fn": "description_jsons/1564.json"
+    },
+    {
+        "time": "00:04:41",
+        "text": "White bishop moved forward towards all the other white pieces",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993943817,
+        "fn": "description_jsons/1566.json"
+    },
+    {
+        "time": "00:04:51",
+        "text": "white biship moved forward and got a pawn, but killed by black rook",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993960273,
+        "fn": "description_jsons/1567.json"
+    },
+    {
+        "time": "00:05:07",
+        "text": "white rook took the black roook",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993964777,
+        "fn": "description_jsons/1568.json"
+    },
+    {
+        "time": "00:05:37",
+        "text": "White rook moved up towards black lines",
+        "video_url": "1570878155",
+        "save_timestamp": 1661993998152,
+        "fn": "description_jsons/1570.json"
+    },
+    {
+        "time": "00:05:52",
+        "text": "white queen took a black pawn",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994012384,
+        "fn": "description_jsons/1572.json"
+    },
+    {
+        "time": "00:05:59",
+        "text": "took another black pawn",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994015592,
+        "fn": "description_jsons/1573.json"
+    },
+    {
+        "time": "00:06:16",
+        "text": "black rook advances forward, gets taken by white king",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994041921,
+        "fn": "description_jsons/1575.json"
+    },
+    {
+        "time": "00:06:31",
+        "text": "neither side has queens left",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994048825,
+        "fn": "description_jsons/1576.json"
+    },
+    {
+        "time": "00:06:39",
+        "text": "black is left with one knight, 2 pawns, and a king",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994059569,
+        "fn": "description_jsons/1577.json"
+    },
+    {
+        "time": "00:07:00",
+        "text": "They are currently dancing around each other",
+        "video_url": "1570878155",
+        "save_timestamp": 1661994092206,
+        "fn": "description_jsons/1579.json"
+    }
+]

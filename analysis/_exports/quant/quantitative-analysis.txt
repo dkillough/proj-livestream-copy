@@ -1,0 +1,205 @@
+raw number of total words:  11354
+total number of descriptions:  1183
+*****
+
+total word counts broken down by participant:  [
+  [ 'D1', 495 ], [ 'D3', 322 ],
+  [ 'D2', 339 ], [ 'B3', 723 ],
+  [ 'C3', 369 ], [ 'C2', 1301 ],
+  [ 'C1', 264 ], [ 'L2', 961 ],
+  [ 'L1', 542 ], [ 'L3', 658 ],
+  [ 'M1', 594 ], [ 'M2', 603 ],
+  [ 'S1', 566 ], [ 'S3', 1005 ],
+  [ 'S2', 553 ], [ 'V3', 609 ],
+  [ 'V1', 394 ], [ 'V2', 1056 ]
+]
+avg words / participant:  630.778
+std. dev words by participant:  275.591
+variance words by participant:  16.601
+
+total description counts broken down by participant:  [
+  [ 'D1', 45 ], [ 'D3', 27 ],
+  [ 'D2', 47 ], [ 'B3', 66 ],
+  [ 'C3', 49 ], [ 'C2', 85 ],
+  [ 'C1', 35 ], [ 'L2', 61 ],
+  [ 'L1', 76 ], [ 'L3', 93 ],
+  [ 'M1', 59 ], [ 'M2', 51 ],
+  [ 'S1', 50 ], [ 'S3', 100 ],
+  [ 'S2', 90 ], [ 'V3', 97 ],
+  [ 'V1', 73 ], [ 'V2', 79 ]
+]
+avg description counts / participant:  65.722
+std. dev description counts / participant:  21.380
+variance description counts / participant:  4.624
+*****
+
+total word counts broken down by video ID:  [
+  [ 'DA', 285 ], [ 'DB', 424 ],
+  [ 'DC', 447 ], [ 'BA', 156 ],
+  [ 'BB', 171 ], [ 'BC', 396 ],
+  [ 'CA', 363 ], [ 'CB', 1116 ],
+  [ 'CC', 455 ], [ 'LA', 789 ],
+  [ 'LB', 658 ], [ 'LC', 714 ],
+  [ 'MA', 432 ], [ 'MB', 399 ],
+  [ 'MC', 366 ], [ 'SA', 647 ],
+  [ 'SB', 803 ], [ 'SC', 674 ],
+  [ 'VA', 575 ], [ 'VB', 682 ],
+  [ 'VC', 802 ]
+]
+avg words / video:  540.667
+std. dev words by video:  230.778
+variance words by video:  15.191
+
+total description counts broken down by videoID:  [
+  [ 'DA', 36 ], [ 'DB', 40 ],
+  [ 'DC', 43 ], [ 'BA', 9 ],
+  [ 'BB', 6 ],  [ 'BC', 51 ],
+  [ 'CA', 37 ], [ 'CB', 79 ],
+  [ 'CC', 53 ], [ 'LA', 78 ],
+  [ 'LB', 58 ], [ 'LC', 94 ],
+  [ 'MA', 43 ], [ 'MB', 39 ],
+  [ 'MC', 28 ], [ 'SA', 76 ],
+  [ 'SB', 83 ], [ 'SC', 81 ],
+  [ 'VA', 95 ], [ 'VB', 70 ],
+  [ 'VC', 84 ]
+]
+avg description counts / videoID:  56.333
+std. dev description counts / videoID:  25.713
+variance description counts / videoID:  5.071
+*****
+
+total word counts broken down by condition:  [ [ 'A', 5622 ], [ 'TA', 3298 ], [ 'TL', 2434 ] ]
+avg words / condition:  3784.667
+std. dev words by condition:  1346.222
+variance words by condition:  36.691
+
+total description counts broken down by condition:  [ [ 'A', 562 ], [ 'TA', 331 ], [ 'TL', 290 ] ]
+avg description counts / condition:  394.333
+std. dev description counts / condition:  119.734
+variance description counts / condition:  10.942
+*****
+
+total word counts broken down by session ID:  [
+  [ 'Art-A-A', 128 ],      [ 'Art-A-TA', 71 ],       [ 'Art-A-TL', 86 ],
+  [ 'Art-B-A', 156 ],      [ 'Art-B-TA', 135 ],      [ 'Art-B-TL', 133 ],
+  [ 'Art-C-A', 118 ],      [ 'Art-C-TA', 234 ],      [ 'Art-C-TL', 95 ],
+  [ 'BOTW-A-TL', 156 ],    [ 'BOTW-B-TA', 171 ],     [ 'BOTW-C-A', 396 ],
+  [ 'Chess-A-A', 81 ],     [ 'Chess-A-TA', 223 ],    [ 'Chess-A-TL', 59 ],
+  [ 'Chess-B-A', 849 ],    [ 'Chess-B-TA', 87 ],     [ 'Chess-B-TL', 180 ],
+  [ 'Chess-C-A', 118 ],    [ 'Chess-C-TA', 108 ],    [ 'Chess-C-TL', 229 ],
+  [ 'League-A-A', 503 ],   [ 'League-A-TA', 163 ],   [ 'League-A-TL', 123 ],
+  [ 'League-B-A', 330 ],   [ 'League-B-TA', 248 ],   [ 'League-B-TL', 80 ],
+  [ 'League-C-A', 299 ],   [ 'League-C-TA', 205 ],   [ 'League-C-TL', 210 ],
+  [ 'Makeup-A-A', 237 ],   [ 'Makeup-A-TL', 195 ],   [ 'Makeup-B-A', 213 ],
+  [ 'Makeup-B-TA', 186 ],  [ 'Makeup-C-TA', 195 ],   [ 'Makeup-C-TL', 171 ],
+  [ 'Smash-A-A', 300 ],    [ 'Smash-A-TA', 265 ],    [ 'Smash-A-TL', 82 ],
+  [ 'Smash-B-A', 575 ],    [ 'Smash-B-TA', 149 ],    [ 'Smash-B-TL', 79 ],
+  [ 'Smash-C-A', 322 ],    [ 'Smash-C-TA', 187 ],    [ 'Smash-C-TL', 165 ],
+  [ 'Valorant-A-A', 263 ], [ 'Valorant-A-TA', 130 ], [ 'Valorant-A-TL', 182 ],
+  [ 'Valorant-B-A', 199 ], [ 'Valorant-B-TA', 339 ], [ 'Valorant-B-TL', 144 ],
+  [ 'Valorant-C-A', 535 ], [ 'Valorant-C-TA', 202 ], [ 'Valorant-C-TL', 65 ]
+]
+total word count avg:  210.259
+total word count std dev: 142.369
+total word count variance: 11.932
+
+total description counts broken down by sessionID:  [
+  [ 'Art-A-A', 19 ],      [ 'Art-A-TA', 5 ],       [ 'Art-A-TL', 12 ],
+  [ 'Art-B-A', 16 ],      [ 'Art-B-TA', 13 ],      [ 'Art-B-TL', 11 ],
+  [ 'Art-C-A', 22 ],      [ 'Art-C-TA', 15 ],      [ 'Art-C-TL', 6 ],
+  [ 'BOTW-A-TL', 9 ],     [ 'BOTW-B-TA', 6 ],      [ 'BOTW-C-A', 51 ],
+  [ 'Chess-A-A', 12 ],    [ 'Chess-A-TA', 18 ],    [ 'Chess-A-TL', 7 ],
+  [ 'Chess-B-A', 42 ],    [ 'Chess-B-TA', 10 ],    [ 'Chess-B-TL', 27 ],
+  [ 'Chess-C-A', 18 ],    [ 'Chess-C-TA', 10 ],    [ 'Chess-C-TL', 25 ],
+  [ 'League-A-A', 34 ],   [ 'League-A-TA', 24 ],   [ 'League-A-TL', 20 ],
+  [ 'League-B-A', 34 ],   [ 'League-B-TA', 11 ],   [ 'League-B-TL', 13 ],
+  [ 'League-C-A', 39 ],   [ 'League-C-TA', 39 ],   [ 'League-C-TL', 16 ],
+  [ 'Makeup-A-A', 27 ],   [ 'Makeup-A-TL', 16 ],   [ 'Makeup-B-A', 20 ],
+  [ 'Makeup-B-TA', 19 ],  [ 'Makeup-C-TA', 15 ],   [ 'Makeup-C-TL', 13 ],
+  [ 'Smash-A-A', 29 ],    [ 'Smash-A-TA', 25 ],    [ 'Smash-A-TL', 22 ],
+  [ 'Smash-B-A', 49 ],    [ 'Smash-B-TA', 26 ],    [ 'Smash-B-TL', 8 ],
+  [ 'Smash-C-A', 42 ],    [ 'Smash-C-TA', 13 ],    [ 'Smash-C-TL', 26 ],
+  [ 'Valorant-A-A', 46 ], [ 'Valorant-A-TA', 30 ], [ 'Valorant-A-TL', 19 ],
+  [ 'Valorant-B-A', 25 ], [ 'Valorant-B-TA', 23 ], [ 'Valorant-B-TL', 22 ],
+  [ 'Valorant-C-A', 37 ], [ 'Valorant-C-TA', 29 ], [ 'Valorant-C-TL', 18 ]
+]
+total avg description counts:  21.907
+total std. dev description counts:  11.423
+total variance description counts:  3.380
+*****
+
+duration spent describing per participant in seconds:  [
+  [ 'Art-A-A', '0:05:38' ],
+  [ 'Art-A-TA', '2:22' ],
+  [ 'Art-A-TL', '6:13' ],
+  [ 'Art-B-A', '0:04:39' ],
+  [ 'Art-B-TA', '4:33' ],
+  [ 'Art-B-TL', '5:14' ],
+  [ 'Art-C-A', '0:05:19' ],
+  [ 'Art-C-TA', '4:45' ],
+  [ 'Art-C-TL', '3:55' ],
+  [ 'BOTW-A-TL', '5:27' ],
+  [ 'BOTW-B-TA', '3:33' ],
+  [ 'BOTW-C-A', '0:05:02' ],
+  [ 'Chess-A-A', '0:06:15' ],
+  [ 'Chess-A-TA', '4:12' ],
+  [ 'Chess-A-TL', '4:37' ],
+  [ 'Chess-B-A', '0:06:11' ],
+  [ 'Chess-B-TA', '4:59' ],
+  [ 'Chess-B-TL', '4:54' ],
+  [ 'Chess-C-A', '0:04:56' ],
+  [ 'Chess-C-TA', '4:59' ],
+  [ 'Chess-C-TL', '5:35' ],
+  [ 'League-A-A', '0:05:41' ],
+  [ 'League-A-TA', '4:29' ],
+  [ 'League-A-TL', '5:11' ],
+  [ 'League-B-A', '0:05:50' ],
+  [ 'League-B-TA', '5:00' ],
+  [ 'League-B-TL', '4:54' ],
+  [ 'League-C-A', '0:05:46' ],
+  [ 'League-C-TA', '5:30' ],
+  [ 'League-C-TL', '5:33' ],
+  [ 'Makeup-A-A', '0:05:55' ],
+  [ 'Makeup-A-TL', '4:48' ],
+  [ 'Makeup-B-A', '0:04:59' ],
+  [ 'Makeup-B-TA', '5:16' ],
+  [ 'Makeup-C-TA', '5:06' ],
+  [ 'Makeup-C-TL', '4:31' ],
+  [ 'Smash-A-A', '0:05:58' ],
+  [ 'Smash-A-TA', '2:25' ],
+  [ 'Smash-A-TL', '5:14' ],
+  [ 'Smash-B-A', '0:04:56' ],
+  [ 'Smash-B-TA', '4:41' ],
+  [ 'Smash-B-TL', '4:38' ],
+  [ 'Smash-C-A', '0:04:57' ],
+  [ 'Smash-C-TA', '5:36' ],
+  [ 'Smash-C-TL', '4:53' ],
+  [ 'Valorant-A-A', '0:04:47' ],
+  [ 'Valorant-A-TA', '4:53' ],
+  [ 'Valorant-A-TL', '4:55' ],
+  [ 'Valorant-B-A', '0:01:57' ],
+  [ 'Valorant-B-TA', '3:22' ],
+  [ 'Valorant-B-TL', '5:15' ],
+  [ 'Valorant-C-A', '0:05:29' ],
+  [ 'Valorant-C-TA', '5:17' ],
+  [ 'Valorant-C-TL', '4:34' ]
+]
+avg duration spent describing by participant in seconds:  295.074
+std. dev duration spent describing by participant in seconds:  52.451
+variance duration spent describing by participant in seconds:  7.242
+*****
+
+avg descriptions per min by participant:  [
+  [ 'D1', 9.474 ],  [ 'D3', 6.894 ],
+  [ 'D2', 10.33 ],  [ 'B3', 12.11 ],
+  [ 'C3', 9.833 ],  [ 'C2', 15.224 ],
+  [ 'C1', 7.023 ],  [ 'L2', 10.991 ],
+  [ 'L1', 15.51 ],  [ 'L3', 16.909 ],
+  [ 'M1', 11.203 ], [ 'M2', 10 ],
+  [ 'S1', 8.929 ],  [ 'S3', 20.478 ],
+  [ 'S2', 17.197 ], [ 'V3', 18.36 ],
+  [ 'V1', 14.949 ], [ 'V2', 16.068 ]
+]
+avg of avg of descriptions per min over all participants:  12.860
+std. dev of avg of descriptions per min over all participants:  3.929
+variance of avg of descriptions per min over all participants:  1.982

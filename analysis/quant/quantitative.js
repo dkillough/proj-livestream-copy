@@ -2,8 +2,6 @@
 
 */
 
-const { parse } = require('path');
-
 // aggregating only on participant
 // aggregating only on video
 // aggregating only on condition
@@ -25,6 +23,21 @@ let numVideoDescriptions = {};
 let numCondDescriptions = {};
 let numSesDescriptions = {};
 let numTotalDescriptions;
+let partDescArr = {
+    B3: [], 
+    C1: [], C2: [], C3: [],
+    D1: [], D2: [], D3: [],
+    L1: [], L2: [], L3: [],
+    M1: [], M2: [],
+    S1: [], S2: [], S3: [],
+    V1: [], V2: [], V3: []
+};
+let condDescArr = {
+    A: [],
+    TA: [],
+    TL: []
+};
+
 
 (() => { 
     const json = require('../../master-data.json')
@@ -43,6 +56,9 @@ let numTotalDescriptions;
         } else {
             numPartDescriptions[json[i].participantID] = 1
         }
+
+        partDescArr[json[i].participantID].push(json[i])
+        condDescArr[json[i].condition].push(json[i])
 
         if(videoWords[json[i].vidID]) {
             videoWords[json[i].vidID] += w
@@ -97,17 +113,37 @@ let numTotalDescriptions;
     const partEntries = Object.entries(partWords)
     console.log("total word counts broken down by participant: ", partEntries)
     let partArr = genValueArray(partEntries)
-    console.log("avg words / participant: ", Number(getAvg(partArr)).toFixed(precision))
-    console.log("std. dev words by participant: ", Number(getStandardDeviation(partArr)).toFixed(precision))
-    console.log("variance words by participant: ", Number(getVariance(partArr)).toFixed(precision))
+    console.log("avg words / all participants: ", Number(getAvg(partArr)).toFixed(precision))
+    console.log("std. dev words / all participants: ", Number(getStandardDeviation(partArr)).toFixed(precision))
+    console.log("variance words / all participants: ", Number(getVariance(partArr)).toFixed(precision))
     console.log()
-    const partDescEntries = Object.entries(numPartDescriptions)
-    console.log("total description counts broken down by participant: ", partDescEntries)
-    let partDescArr = genValueArray(partDescEntries)
-    console.log("avg description counts / participant: ", Number(getAvg(partDescArr)).toFixed(precision))
-    console.log("std. dev description counts / participant: ", Number(getStandardDeviation(partDescArr)).toFixed(precision))
-    console.log("variance description counts / participant: ", Number(getVariance(partDescArr)).toFixed(precision))
+    const allPartDescEntries = Object.entries(numPartDescriptions)
+    console.log("total description counts broken down by participant: ", allPartDescEntries)
+    let allPartDescArr = genValueArray(allPartDescEntries)
+    console.log("avg description counts / participant: ", Number(getAvg(allPartDescArr)).toFixed(precision))
+    console.log("std. dev description counts / participant: ", Number(getStandardDeviation(allPartDescArr)).toFixed(precision))
+    console.log("variance description counts / participant: ", Number(getVariance(allPartDescArr)).toFixed(precision))
     
+    console.log("***********")
+    console.log("PART SECTION")
+    // let participantLengths = {}
+    let avgWordCountArr = []
+    for(keys in partDescArr) {
+        // console.log(keys + ": ")
+        let countDescArr = []       // storing array of description counts per participant ID
+        for(let i = 0; i < partDescArr[keys].length; i++) {
+            countDescArr.push(countDesc(partDescArr[keys][i]))
+            // console.log(countDescArr[countDescArr.length-1])
+        }
+        let tmpAvg = getAvg(countDescArr)
+        avgWordCountArr.push(tmpAvg)
+        console.log("avg word count per description for participant " + keys + " = " + Number(tmpAvg).toFixed(precision));
+    }
+    console.log("***********")
+    console.log("avg word count per description over all participants " + Number(getAvg(avgWordCountArr)).toFixed(precision));
+    console.log("std. dev word counts / all participants: ", Number(getStandardDeviation(avgWordCountArr)).toFixed(precision))
+    console.log("variance word counts / all participants: ", Number(getVariance(avgWordCountArr)).toFixed(precision))
+
     console.log('*****')
     console.log()
     const vidEntries = Object.entries(videoWords)
@@ -126,6 +162,24 @@ let numTotalDescriptions;
     
     console.log('*****')
     console.log()
+    avgWordCountArr = []
+    for(keys in condDescArr) {
+        // console.log(keys + ": ")
+        let countDescArr = []       // storing array of description counts per condition
+        for(let i = 0; i < condDescArr[keys].length; i++) {
+            countDescArr.push(countDesc(condDescArr[keys][i]))
+        }
+        let tmpAvg = getAvg(countDescArr)
+        avgWordCountArr.push(tmpAvg)
+        console.log("avg word count per description for condition " + keys + " = " + Number(tmpAvg).toFixed(precision));
+    }
+    console.log("***********")
+    console.log("avg word count per description over all participants " + Number(getAvg(avgWordCountArr)).toFixed(precision));
+    console.log("std. dev word counts / all participants: ", Number(getStandardDeviation(avgWordCountArr)).toFixed(precision))
+    console.log("variance word counts / all participants: ", Number(getVariance(avgWordCountArr)).toFixed(precision))
+
+    console.log('*****')
+    console.log()
     const condEntries = Object.entries(condWords)
     console.log("total word counts broken down by condition: ", condEntries)
     let condArr = genValueArray(condEntries)
@@ -134,11 +188,11 @@ let numTotalDescriptions;
     console.log("variance words by condition: ", Number(getVariance(condArr)).toFixed(precision))
     console.log()
     const condDescEntries = Object.entries(numCondDescriptions)
-    console.log("total description counts broken down by condition: ", condDescEntries)
-    let condDescArr = genValueArray(condDescEntries)
-    console.log("avg description counts / condition: ", Number(getAvg(condDescArr)).toFixed(precision))
-    console.log("std. dev description counts / condition: ", Number(getStandardDeviation(condDescArr)).toFixed(precision))
-    console.log("variance description counts / condition: ", Number(getVariance(condDescArr)).toFixed(precision))
+    console.log("total description counts broken down by condition (aggregate): ", condDescEntries)
+    let aggCondDescArr = genValueArray(condDescEntries)
+    console.log("avg description counts / condition: ", Number(getAvg(aggCondDescArr)).toFixed(precision))
+    console.log("std. dev description counts / condition: ", Number(getStandardDeviation(aggCondDescArr)).toFixed(precision))
+    console.log("variance description counts / condition: ", Number(getVariance(aggCondDescArr)).toFixed(precision))
     
     console.log('*****')
     console.log()
@@ -221,4 +275,8 @@ function parseTime(t) {
     const sec = parseInt(data[offset + 1])
     const time = (min * 60) + sec
     return time
+}
+
+function countDesc(desc) {
+    return desc.descTxt.split(" ").length
 }

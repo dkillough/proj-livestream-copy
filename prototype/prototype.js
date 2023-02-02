@@ -27,7 +27,7 @@ function processData() {
 
 function switchVideo() {
     const video = document.getElementById('content')
-    video.src = './Chess-B.mp4'
+    video.src = 'CA.mp4'
 }
 
 function updateVisualDescription() {

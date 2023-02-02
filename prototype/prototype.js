@@ -27,7 +27,7 @@ function processData() {
 
 function switchVideo() {
     const video = document.getElementById('content')
-    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/LA.mp4'
+    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/LA.mp4?raw=true'
 }
 
 function updateVisualDescription() {

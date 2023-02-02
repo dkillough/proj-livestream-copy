@@ -13,7 +13,7 @@ function processData() {
     let q = parseQuery(window.location.href.split('?')[1])
     console.log(q)
     let v = q["videoId"]
-    video.src = './VODs/' + v + ".mp4"
+    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/' + v + ".mp4"
     let o = q["option"]
     $.getJSON('../master-data.json', (json) => {
         for(let i = 0; i < json.length; i++) {
@@ -27,7 +27,7 @@ function processData() {
 
 function switchVideo() {
     const video = document.getElementById('content')
-    video.src = 'CA.mp4'
+    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/LA.mp4'
 }
 
 function updateVisualDescription() {

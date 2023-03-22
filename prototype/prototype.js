@@ -15,10 +15,91 @@ function processData() {
     let v = q["videoId"]
     video.src = 'https://github.com/dkillough/livestream-vods/blob/main/' + v + ".mp4?raw=true"
     let o = q["option"]
+    let timeOffset = 0;
+    switch(v) {
+        case "BA":
+            if(o == "TL") timeOffset = 11
+            break;
+        case "BB":
+            if(o == "TA") timeOffset = 113
+            break;
+        case "BC":
+            if(o == "A") timeOffset = 9
+            break;
+        case "DA":
+            if(o == "A") timeOffset = 8
+            else if(o == "TL") timeOffset = 3
+            else if(o == "TA") timeOffset = 49
+            break;
+        case "DB":
+            if(o == "TL") timeOffset = 21
+            break;
+        case "DC":
+            if(o == "TL") timeOffset = 18
+            else if(o == "TA") timeOffset = 34
+            break;
+        case "CA":
+            if(o == "TA") timeOffset = 12
+            break;
+        case "CB":
+            if(o == "A") timeOffset = -56
+            else if(o == "TL") timeOffset = 9
+            else if(o == "TA") timeOffset = 3
+            break;
+        case "CC":
+            if(o == "A") timeOffset = 7
+            else if(o == "TL") timeOffset = 5
+            break;
+        case "LA":
+            if(o == "TL") timeOffset = 22
+            else if(o == "TA") timeOffset = 39
+            break;
+        case "LB":
+            if(o == "A") timeOffset = 16
+            else if(o == "TL") timeOffset = 9
+            else if(o == "TA") timeOffset = 2
+            break;
+        case "LC":
+            if(o == "TL") timeOffset = 4
+            else if(o == "TA") timeOffset = 3
+            break;
+        case "MA":
+            if(o == "A") timeOffset = -65
+            else if(o == "TL") timeOffset = 1
+            break;
+        case "MB":
+            if(o == "TA") timeOffset = 2
+            break;
+        case "SA":
+            if(o == "A") timeOffset = 5    
+            else if(o == "TA") timeOffset = 15
+            break;
+        case "SB":
+            if(o == "A") timeOffset = 7
+            else if(o == "TL") timeOffset = 4
+            break;
+        case "SC":
+            if(o == "A") timeOffset = 6
+            else if(o == "TL") timeOffset = 5
+            else if(o == "TA") timeOffset = 4
+            break;
+        case "VA":
+            if(o == "A") timeOffset = 4
+            else if(o == "TA") timeOffset = 4
+            break;
+        case "VB":
+            if(o == "TL") timeOffset = 5
+            else if(o == "TA") timeOffset = 1
+            break;
+        case "VC":
+            if(o == "TL") timeOffset = 45
+            else if(o == "TA") timeOffset = 4
+            break;
+    }
     $.getJSON('../master-data.json', (json) => {
         for(let i = 0; i < json.length; i++) {
             if(v == json[i].vidID && o == json[i].condition) {
-                let t = parseTime(json[i].timecode)
+                let t = parseTime(json[i].timecode) + timeOffset
                 timecodeArr[t] = json[i].descTxt
             }
         }

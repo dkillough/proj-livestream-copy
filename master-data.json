@@ -2235,6 +2235,16 @@
         "participantID": "C2",
         "folder": "https://drive.google.com/drive/folders/1rE_h1Wgpw5p3YE7niUfpedpAF2zPreqU?usp=share_link",
         "vidID": "CB",
+        "descTxt": "So we're looking at a very weird structure overall. White looks like to be they are up a knight and down a pawn in compensation. Other than that material is even. in terms of where pawns are placed. White has a pawn on a five, C four, D three, F four, G three, and H four Black has pawns every pawnis on the seventh rank except for the E pawn which is on E six. Black King is on E seven, uh, and the black bishop is on D six. Black also has a Rook on E eight and a rook on H eight as well as a bishop on C eight, a Knight on a eight and a Queen on D eight Whites. Pieces are a Rook on a one, a Rook on H one a Bishop on F one, a Bishop on E three, and a Queen on B three and Knights on as uh, F three and E four.",
+        "firstDesc": "0:01:57",
+        "timecode": "0:00:57"
+    },
+    {
+        "sessionID": "Chess-B-A",
+        "condition": "A",
+        "participantID": "C2",
+        "folder": "https://drive.google.com/drive/folders/1rE_h1Wgpw5p3YE7niUfpedpAF2zPreqU?usp=share_link",
+        "vidID": "CB",
         "descTxt": "and does capture the rook on H seven with their rook.",
         "firstDesc": "0:01:57",
         "timecode": "0:03:57"
@@ -8945,7 +8955,7 @@
         "participantID": "S2",
         "folder": "https://drive.google.com/drive/folders/11ebpi9nD1-g6NVz1n5D1RBmefw8D0DXC?usp=share_link",
         "vidID": "SC",
-        "descTxt": "Video: no chapter or something",
+        "descTxt": "or something",
         "firstDesc": "2:09:14",
         "timecode": "0:01:06"
     },
@@ -10815,19 +10825,9 @@
         "participantID": "V3",
         "folder": "https://drive.google.com/drive/folders/1Ihqm-uO4FqUQbxK0Ro79envgC5PtNEFt?usp=share_link",
         "vidID": "VB",
-        "descTxt": "TImmy gets headshot from behind00:07:32",
+        "descTxt": "TImmy gets headshot from behind",
         "firstDesc": "0:06:47",
         "timecode": "0:31"
-    },
-    {
-        "sessionID": "Valorant-B-TL",
-        "condition": "TL",
-        "participantID": "V3",
-        "folder": "https://drive.google.com/drive/folders/1Ihqm-uO4FqUQbxK0Ro79envgC5PtNEFt?usp=share_link",
-        "vidID": "VB",
-        "descTxt": "0:06:47",
-        "firstDesc": "0:06:47",
-        "timecode": "0:45"
     },
     {
         "sessionID": "Valorant-B-TL",

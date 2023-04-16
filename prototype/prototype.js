@@ -47,7 +47,7 @@ function processData() {
             else if(o == "TA") timeOffset = 3
             break;
         case "CC":
-            if(o == "A") timeOffset = 7
+            if(o == "A") timeOffset = 67
             else if(o == "TL") timeOffset = 5
             break;
         case "LA":

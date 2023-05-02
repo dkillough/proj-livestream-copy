@@ -13,7 +13,7 @@ function processData() {
     let q = parseQuery(window.location.href.split('?')[1])
     console.log(q)
     let v = q["videoId"]
-    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/' + v + ".mp4?raw=true"
+    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/kc.mp4?raw=true'
     let o = q["option"]
     let timeOffset = 0;
     switch(v) {
@@ -108,7 +108,7 @@ function processData() {
 
 function switchVideo() {
     const video = document.getElementById('content')
-    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/LA.mp4?raw=true'
+    video.src = 'https://github.com/dkillough/livestream-vods/blob/main/kc.mp4?raw=true'
 }
 
 function updateVisualDescription() {
